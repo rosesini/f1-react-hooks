@@ -1,0 +1,30 @@
+.f1-footer {
+  background: #15151e;
+  color: #fff;
+  padding-bottom: 20px;
+}
+
+.f1-footer hr.f1-divider {
+  background: #38383f;
+  border: 0;
+  margin: 15px auto;
+  width: 100%;
+  height: 1px;
+}
+
+.f1-footer .f1-logo {
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 84px;
+  height: 21px;
+}
+
+.f1-footer .f1-copyright-notice {
+  float: right;
+  color: #d0d0d2;
+  font-size: 12px;
+  line-height: 32px;
+  text-align: right;
+  margin: 0;
+}
