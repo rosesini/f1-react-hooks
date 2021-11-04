@@ -3,6 +3,17 @@
   text-align: center;
 }
 
+.f1-standings .title {
+  margin: 50px 0 30px 0;
+  font-family: 'Formula1 Display-Wide';
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.last-race .title {
+  margin: 10px 0 5px 0;
+}
+
 .f1-standings .f1-tab-content-wrapper {
   position: relative;
 }
@@ -82,6 +93,7 @@
   top: 1px;
   text-align: right;
   width: 20px;
+  font-family: "Formula1 Display-Bold";
 }
 
 .f1-standings .f1-podium--time {
@@ -95,4 +107,8 @@
   font-size: 13px;
   letter-spacing: .5px;
   font-weight: 400;
+}
+
+.f1-standings .f1-podium--driver {
+  font-family: "Formula1 Display-Regular";
 }

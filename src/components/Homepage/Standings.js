@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { Tab, Tabs } from '@mui/material'
 import { Box } from '@mui/system'
 
+import ChevronRightIcon from '@mui/icons-material/ChevronRight'
+
 import './Standings.css'
 
 import { 
@@ -157,7 +159,7 @@ export default function Standings() {
           <TabPanel className="f1-tab-content" value={tabValue} index={0}>
             <div className="container">
               <div className="col-xl-10 offset-xl-1"> 
-                <h3 className="title text-white">Standings</h3>
+                <h3 className="title text-white text-uppercase">Standings</h3>
                 <ul className="f1-podium">
                   {drivers.length && drivers.map((driver, id) => (
                     <li key={driver["driverId"]} className="f1-podium--item">
@@ -172,21 +174,24 @@ export default function Standings() {
                         <span className="f1-podium-subdetail">{driver["constructor"] && driver["constructor"]["name"]}</span>
                         <span className="f1-podium-right">
                           <span className="f1-podium--time">{driver["points"]} PTS</span>
-                          <i className="icon icon-chevron-right" />
+                          <ChevronRightIcon />
                         </span>
                       </a>
                     </li>
                   ))}
                 </ul>
                 
-                <a href="/" className="btn btn--default text-uppercase">View Full Standings</a>
+                <a href="/" className="btn btn-primary text-uppercase">
+                  View Full Standings
+                  <ChevronRightIcon />
+                </a>
               </div>
             </div>
           </TabPanel>
           <TabPanel className="f1-tab-content" value={tabValue} index={1}>
             <div className="container">
               <div className="col-xl-10 offset-xl-1">
-                <h3 className="title text-white">Standings</h3>
+                <h3 className="title text-white text-uppercase">Standings</h3>
 
                 <ul className="f1-podium">
                   {constructors.length && constructors.map((constructor, id) => (
@@ -199,26 +204,32 @@ export default function Standings() {
                         </span>
                         <span className="f1-podium-right">
                           <span className="f1-podium--time">{constructor["points"]} PTS</span>
-                          <i className="icon icon-chevron-right" />
+                          <ChevronRightIcon />
                         </span>
                       </a>
                     </li>
                   ))}
                 </ul>
 
-                <a href="/" className="btn btn--default text-uppercase">View Full Standings</a>
+                <a href="/" className="btn btn-primary text-uppercase">
+                  View Full Standings                
+                  <ChevronRightIcon />
+                </a>
               </div>
             </div>
           </TabPanel>
-          <TabPanel className="f1-tab-content" value={tabValue} index={2}>
+          <TabPanel className="f1-tab-content last-race" value={tabValue} index={2}>
             <div className="container">
               {
                 lastRaceResults && (
                   <div className="col-xl-10 offset-xl-1">
-                    <h3 className="title text-white">United States</h3>
-                    <h4 className="text-white">{lastRaceResults["season"]}</h4>
+                    <h3 className="title text-white text-uppercase">United States</h3>
+                    <h4 className="text-white text-bold">{lastRaceResults["season"]}</h4>
                     <p>
-                      <a className="text-white" href="/">{lastRaceResults["raceName"]}</a>
+                      <a className="text-white text-decoration-none" href="/">
+                        {lastRaceResults["raceName"]}{" "}{lastRaceResults["season"]}
+                        <ChevronRightIcon />
+                      </a>
                     </p>
 
                     <ul className="f1-podium">
@@ -235,14 +246,17 @@ export default function Standings() {
                             <span className="f1-podium-subdetail">{result["constructorName"]}</span>
                             <span className="f1-podium-right">
                               <span className="f1-podium--time">{result["points"]} PTS</span>
-                              <i className="icon icon-chevron-right" />
+                              <ChevronRightIcon />
                             </span>
                           </a>
                         </li>
                       ))}
                     </ul>
 
-                    <a href="/" className="btn btn--default text-uppercase">Race Result</a>
+                    <a href="/" className="btn btn-primary text-uppercase">
+                      Race Result
+                      <ChevronRightIcon />
+                    </a>
                   </div>
                 )
               }
