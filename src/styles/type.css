@@ -1,0 +1,15 @@
+
+@font-face {
+  font-family: 'Formula1 Display-Regular';
+  src: url(../assets/fonts/Formula1\ Display\ Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Formula1 Display-Bold';
+  src: url(../assets/fonts/Formula1\ Display\ Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Formula1 Display-Wide';
+  src: url(../assets/fonts/Formula1\ Display\ Wide.ttf) format('truetype');
+}
