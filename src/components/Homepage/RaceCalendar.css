@@ -1,0 +1,60 @@
+.race-calendar {
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.race-calendar .parallax {
+  background: #15151e;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.race-calendar .race {
+  position: relative;
+  border-right: solid 1px #38383f;
+  border-bottom-right-radius: 20px;
+  border-bottom: solid 1px #383838;
+  cursor: pointer;
+  width: 146px;
+  height: 530px;
+  margin: 20px 0;
+  padding: 10px 0 0;
+  overflow: visible;
+  transition: width .4s ease-out;
+}
+
+.race .country {
+  font-family: 'Formula1 Display-Bold';
+  font-size: 13px;
+  line-height: 15px;
+  margin: 0 auto;
+  min-height: 70px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 90%;
+}
+
+.race .race-short-date {
+  text-align: center;
+}
+
+.race .race-short-date .date {
+  color: white;
+  font-family: 'Formula1 Display-Bold';
+  font-size: 36px;
+  line-height: 36px;
+}
+
+.race .race-short-date .month {
+  color: #949498;
+  font-family: "Titillium Web";
+  font-size: 13px;
+  line-height: 15px;
+  letter-spacing: .5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
