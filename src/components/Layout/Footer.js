@@ -14,7 +14,7 @@ export default function Footer() {
               </a>
             </div>
             <div className="col-6">
-              <p class="f1-copyright-notice">© 2003-2021 Formula One World Championship Limited</p>
+              <p className="f1-copyright-notice">© 2003-2021 Formula One World Championship Limited</p>
             </div>
           </div>
         </div>
