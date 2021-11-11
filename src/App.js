@@ -1,3 +1,4 @@
+import { Routes, Route, Navigate } from 'react-router-dom'
 import FormulaOneLayout from './components/Layout/FormulaOneLayout'
 import Homepage from './containers/Homepage'
 import GlobalSpinner from './components/GlobalSpinner/GlobalSpinner'
@@ -7,9 +8,12 @@ function App() {
   return (
     <GlobalSpinnerContextProvider>
       <div className="App">
-        <FormulaOneLayout>
-          <Homepage />
-        </FormulaOneLayout>
+        <Routes>
+          <Route path="/" element={<FormulaOneLayout />}>
+            <Route index element={<Homepage />} />
+            <Route path="*" element={<Homepage />} />
+          </Route>
+        </Routes>
       </div>    
       <GlobalSpinner />
     </GlobalSpinnerContextProvider>
