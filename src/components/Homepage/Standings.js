@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Tab, Tabs } from '@mui/material'
 import { Box } from '@mui/system'
 
@@ -137,6 +138,8 @@ export default function Standings() {
     loadStandings()
   }, [])
 
+  const currentSeason = new Date().getUTCFullYear()
+
   return (
     <div className="f1-standings">
       <div className="f1-tab-widget">
@@ -181,10 +184,10 @@ export default function Standings() {
                   ))}
                 </ul>
                 
-                <a href="/" className="btn btn-primary text-uppercase">
+                <Link to={`/results/${currentSeason}/drivers`} className="btn btn-primary text-uppercase">
                   View Full Standings
                   <ChevronRightIcon />
-                </a>
+                </Link>
               </div>
             </div>
           </TabPanel>
