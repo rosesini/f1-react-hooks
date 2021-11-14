@@ -55,7 +55,7 @@ function a11yProps(index) {
 }
 
 const driverStandingsAdapter = (res) => {
-  const { MRData: { limit, offset, total, StandingsTable: { StandingsLists: listsData } } } = res
+  const { MRData: { StandingsTable: { StandingsLists: listsData } } } = res
 
   return listsData[0]['DriverStandings']
     .slice(0, 10)
@@ -75,7 +75,7 @@ const driverStandingsAdapter = (res) => {
 }
 
 const constructorStadingsAdapter = (res) => {
-  const { MRData: { limit, offset, total, StandingsTable: { StandingsLists: listsData } } } = res
+  const { MRData: { StandingsTable: { StandingsLists: listsData } } } = res
 
   return listsData[0]['ConstructorStandings']
     .slice(0, 10)
@@ -90,7 +90,7 @@ const constructorStadingsAdapter = (res) => {
 }
 
 const raceLastResultsAdapter = (res) => {
-  const { MRData: { RaceTable: { Races, round, season }} } = res
+  const { MRData: { RaceTable: { Races }} } = res
   const lastRace = Races && Races.length && Races[0]
 
   if (lastRace) {

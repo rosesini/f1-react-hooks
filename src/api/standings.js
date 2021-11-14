@@ -6,9 +6,7 @@ export const driverStandings = async (
   const requestURL = (race ? `/f1/${season}/${race}` : `/f1/${season}`) + '/driverStandings.json'
 
   return axios
-    .get(
-      requestURL
-    )
+    .get(requestURL)
     .then(res => res.data)
 }
 
@@ -18,8 +16,6 @@ export const constructorStandings = async (
   const requestURL = (race ? `/f1/${season}/${race}` : `/f1/${season}`) + '/constructorStandings.json'
 
   return axios
-    .get(
-      requestURL
-    )
+    .get(requestURL)
     .then(res => res.data)
 }
