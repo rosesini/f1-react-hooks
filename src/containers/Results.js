@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 
 import { scheduleRaces as apiRaceSchedule } from '../api/raceSchedule'
 import { constructors as apiConstructors } from '../api/constructors'
-import { results as apiRaceResults } from '../api/race'
 import { drivers as apiDrivers } from '../api/drivers'
 
 import './Results.css'
@@ -134,7 +133,7 @@ export default function Results() {
             <ul className="resultsarchive-filter">
               {seasonYears.map(sy => (
                 <li key={sy} className={`resultsarchive-filter-item${sy.toString() === season.toString() ? ' selected' : ''}`}>
-                  <Link to={`${sy}/${index}`}>
+                  <Link to={`../results/${sy}/${index}`}>
                     <span className="clip">{sy}</span>
                   </Link>
                 </li>
@@ -145,7 +144,7 @@ export default function Results() {
             <ul className="resultsarchive-filter">
               {filterIndexes.map(fi => (
                 <li key={fi} className={`resultsarchive-filter-item${fi === index ? ' selected' : ''}`}>
-                  <Link to={`${season}/${fi}`}>
+                  <Link to={`${fi}`}>
                     <span className="clip text-uppercase">{filterIndexNames[fi]}</span>
                   </Link>
                 </li>
@@ -156,13 +155,13 @@ export default function Results() {
             {index === 'races' && (
               <ul className="resultsarchive-filter">
                 <li className={`resultsarchive-filter-item${!spItem ? ' selected' : ''}`}>
-                  <Link to={`${season}/races`}>
+                  <Link to={`races`}>
                     <span className="clip text-uppercase">All</span>
                   </Link>
                 </li>
                 {raceFilterOptions.map((ro, id) => (
                   <li key={id} className={`resultsarchive-filter-item${spItem === ro.circuitId ? ' selected' : ''}`}>
-                    <Link to={`${season}/races/${ro.circuitId}`}>
+                    <Link to={`races/${ro.circuitId}`}>
                       <span className="clip text-uppercase">{ro.raceName}</span>
                     </Link>
                   </li>
@@ -172,13 +171,13 @@ export default function Results() {
             {index === 'drivers' && (
               <ul className="resultsarchive-filter">
                 <li className={`resultsarchive-filter-item${!spItem ? ' selected' : ''}`}>
-                  <Link to={`${season}/drivers`}>
+                  <Link to={`drivers`}>
                     <span className="clip text-uppercase">All</span>
                   </Link>
                 </li>
                 {driverFilterOptions.map((di, id) => (
                   <li key={id} className={`resultsarchive-filter-item${spItem === di.driverId ? ' selected' : ''}`}>
-                    <Link to={`${season}/drivers/${di.driverId}`}>
+                    <Link to={`drivers/${di.driverId}`}>
                       <span className="clip text-uppercase">{di.driverName}</span>
                     </Link>
                   </li>
@@ -188,13 +187,13 @@ export default function Results() {
             {index === 'teams' && (
               <ul className="resultsarchive-filter">
                 <li className={`resultsarchive-filter-item${!spItem ? ' selected' : ''}`}>
-                  <Link to={`${season}/teams`}>
+                  <Link to={`teams`}>
                     <span className="clip text-uppercase">All</span>
                   </Link>
                 </li>
                 {teamFilterOptions.map((t, id) => (
                   <li key={id} className={`resultsarchive-filter-item${spItem === t.constructorId ? ' selected' : ''}`}>
-                    <Link to={`${season}/teams/${t.constructorId}`}>
+                    <Link to={`teams/${t.constructorId}`}>
                       <span className="clip text-uppercase">{t.name}</span>
                     </Link>
                   </li>
@@ -204,12 +203,7 @@ export default function Results() {
           </div>
         </div>
         <div className="resultsarchive-wrapper">
-          <div className="resultsarchive-content-header">
-          </div>
-          <div className="resultsarchive-content">
-            <div className="table-wrap">
-            </div>
-          </div>
+          <Outlet />
         </div>
       </div>
     </main>
