@@ -31,7 +31,7 @@ const driverFilterOptionsAdapter = (res) => {
   const { MRData: { DriverTable: { Drivers: list } } } = res
   return list.map(d => {
     const { driverId, familyName, givenName } = d
-    return { driverId, driverName: `${givenName} ${familyName}`}
+    return { driverId, driverName: `${familyName}, ${givenName}`}
   })
 }
 
@@ -44,7 +44,7 @@ const teamFilterOptionsAdapter = (res) => {
 }
 
 const raceScheduleMap = {}
-const getRaceSchedule = (season) => {
+export const getRaceSchedule = (season) => {
   return new Promise((resolve, reject) => {
     if (raceScheduleMap.hasOwnProperty(season)) {
       resolve(raceScheduleMap[season])
@@ -58,7 +58,7 @@ const getRaceSchedule = (season) => {
 }
 
 const driversBySeason = {}
-const getDrivers = (season) => {
+export const getDrivers = (season) => {
   return new Promise((resolve, reject) => {
     if (driversBySeason.hasOwnProperty(season)) {
       resolve(driversBySeason[season])
@@ -72,7 +72,7 @@ const getDrivers = (season) => {
 }
 
 const constructorsBySeason = {}
-const getConstructors = (season) => {
+export const getConstructors = (season) => {
   return new Promise((resolve, reject) => {
     if (constructorsBySeason.hasOwnProperty(season)) {
       resolve(constructorsBySeason[season])
@@ -105,23 +105,21 @@ export default function Results() {
   const [teamFilterOptions, setTeamFilterOptions] = useState([])
 
   useEffect(() => {
-    if (!spItem) {
-      if (index === 'races') {
-        getRaceSchedule(season).then(res => {
-          const options = raceFilterOptionsAdapter(res)
-          setRaceFilterOptions(options)
-        })
-      } else if (index === 'drivers') {
-        getDrivers(season).then(res => {
-          const options = driverFilterOptionsAdapter(res)
-          setDriverFilterOptions(options)
-        })
-      } else if (index === 'teams') {
-        getConstructors(season).then(res => {
-          const options = teamFilterOptionsAdapter(res)
-          setTeamFilterOptions(options)
-        })
-      }
+    if (index === 'races') {
+      getRaceSchedule(season).then(res => {
+        const options = raceFilterOptionsAdapter(res)
+        setRaceFilterOptions(options)
+      })
+    } else if (index === 'drivers') {
+      getDrivers(season).then(res => {
+        const options = driverFilterOptionsAdapter(res)
+        setDriverFilterOptions(options)
+      })
+    } else if (index === 'teams') {
+      getConstructors(season).then(res => {
+        const options = teamFilterOptionsAdapter(res)
+        setTeamFilterOptions(options)
+      })
     }
   }, [location])
   
@@ -160,8 +158,8 @@ export default function Results() {
                   </Link>
                 </li>
                 {raceFilterOptions.map((ro, id) => (
-                  <li key={id} className={`resultsarchive-filter-item${spItem === ro.circuitId ? ' selected' : ''}`}>
-                    <Link to={`races/${ro.circuitId}`}>
+                  <li key={id} className={`resultsarchive-filter-item${spItem === ro.round ? ' selected' : ''}`}>
+                    <Link to={`races/${ro.round}`}>
                       <span className="clip text-uppercase">{ro.raceName}</span>
                     </Link>
                   </li>

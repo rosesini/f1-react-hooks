@@ -21,7 +21,7 @@ function App() {
             <Route index element={<Homepage />} />
             <Route path="results/:season" element={<Results />}>
               <Route path="races" element={<ResultsRaces />} />
-              <Route path="races/:raceId" element={<ResultsRace />} />
+              <Route path="races/:round" element={<ResultsRace />} />
               <Route path="drivers" element={<ResultsDrivers />} />
               <Route path="drivers/:driverId" element={<ResultsDriver />} />
               <Route path="teams" element={<ResultsTeams />} />

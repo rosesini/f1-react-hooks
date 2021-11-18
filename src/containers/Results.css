@@ -4,6 +4,7 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  font-family: "Titillium Web";
 }
 
 .resultsarchive-filter-container {
@@ -39,7 +40,7 @@
   background: white;
   color: #15151e;
   cursor: pointer;
-  font-family: 'Formula1 Display-Bold';
+  font-family: 'Formula1 Display-Regular';
   font-weight: 500;
   font-size: 14px;
   line-height: 2.58;
@@ -58,4 +59,121 @@
 .resultsarchive-wrapper {
   background-color: white;
   margin-bottom: 40px;
+}
+
+.resultsarchive-content-header {
+  padding: 35px 29px 10px;
+  position: relative;
+}
+
+.resultsarchive-content-header .date {
+  margin-top: 0.9rem;
+  line-height: 1.35rem;
+  font-size: 13px;
+  color: #171717;
+}
+
+.resultsarchive-title {
+  text-transform: none;
+  margin-bottom: 4.8rem;
+  font-family: 'Formula1 Display-Regular';
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 1.142;
+  color: #171717;
+}
+
+.resultsarchive-content {
+  padding-bottom: 45px;
+}
+
+.resultsarchive-content.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.resultsarchive-content .table-wrap {
+  padding: 0 26px;
+}
+
+.resultsarchive-col-left {
+  float: left;
+  width: 25%;
+  padding-right: 5%;
+}
+
+.resultsarchive-col-right {
+  width: 75%;
+  float: right;
+  padding-right: 3%;
+}
+
+.resultsarchive-side-nav {
+  margin: 0;
+  list-style-type: none;
+}
+
+.resultsarchive-side-nav .side-nav-item:first-child {
+  border-left: 3px solid #e00;
+  background: #fff;
+  color: #15151e;
+  font-weight: 700;
+  padding: 25px 0 17px 25px;
+  cursor: default;
+}
+
+.resultsarchive-side-nav .side-nav-item {
+  text-transform: uppercase;
+  font-family: 'Formula1 Display-Regular';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.214;
+}
+
+.resultsarchive-side-nav .side-nav-item-link {
+  text-decoration: none;
+  display: block;
+  margin-left: 28px;
+  padding: 20px 0 17px 0;
+  border-bottom: 1px solid #e2e2e2;
+  font-weight: 500;
+  color: gray;
+}
+
+.resultsarchive-side-nav .side-nav-item-link.selected {
+  border-left: 3px solid #545454;
+  background: #e6e6e6;
+  color: #15151e;
+  font-weight: 700;
+  padding: 9px 0 9px 25px;
+  margin: 0 0 1px 0;
+  border-bottom: 0;
+}
+
+.resultsarchive-table {
+  margin: 0 0 25px 0;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.resultsarchive-table tr th {
+  padding: 18px 20px 14px;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: gray;
+  font-size: 11px;
+}
+
+.resultsarchive-table tbody tr:nth-child(odd) {
+  background: #f4f4f4;
+}
+
+.resultsarchive-table tbody td {
+  padding: 18px 20px 14px;
+  color: #171717;
+  font-size: 13px;
+  text-align: left;
+  font-family: "Titillium Web" !important;
 }
