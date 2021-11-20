@@ -147,8 +147,6 @@ export default function Standings() {
           <Tabs
             value={tabValue}
             onChange={handleTabsChange}
-            textColor="secondary"
-            indicatorColor="secondary"
             aria-label="standings tabs"
             centered
           >
@@ -166,7 +164,7 @@ export default function Standings() {
                 <ul className="f1-podium">
                   {drivers.length && drivers.map((driver, id) => (
                     <li key={driver["driverId"]} className="f1-podium--item">
-                      <a href="/" className="f1-podium--link">
+                      <Link to="/" className="f1-podium--link">
                         <span className="f1-podium--rank">{driver["position"]}</span>
                         <span className="team-color-icon" style={{ background: RANDOM_TEAM_COLORS[id] }} />
                         <span className="f1-podium--driver">
@@ -179,7 +177,7 @@ export default function Standings() {
                           <span className="f1-podium--time">{driver["points"]} PTS</span>
                           <ChevronRightIcon />
                         </span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -199,7 +197,7 @@ export default function Standings() {
                 <ul className="f1-podium">
                   {constructors.length && constructors.map((constructor, id) => (
                     <li key={constructor["constructorId"]} className="f1-podium--item">
-                      <a href="/" className="f1-podium--link">
+                      <Link to="/" className="f1-podium--link">
                         <span className="f1-podium--rank">{constructor["position"]}</span>
                         <span className="team-color-icon" style={{ background: RANDOM_TEAM_COLORS[id] }} />
                         <span className="f1-podium--driver">
@@ -209,15 +207,15 @@ export default function Standings() {
                           <span className="f1-podium--time">{constructor["points"]} PTS</span>
                           <ChevronRightIcon />
                         </span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
 
-                <a href="/" className="btn btn-primary text-uppercase">
+                <Link to={`/results/${currentSeason}/teams`} className="btn btn-primary text-uppercase">
                   View Full Standings                
                   <ChevronRightIcon />
-                </a>
+                </Link>
               </div>
             </div>
           </TabPanel>
@@ -229,16 +227,16 @@ export default function Standings() {
                     <h3 className="title text-white text-uppercase">United States</h3>
                     <h4 className="text-white text-bold">{lastRaceResults["season"]}</h4>
                     <p>
-                      <a className="text-white text-decoration-none" href="/">
+                      <Link to="/" className="text-white text-decoration-none">
                         {lastRaceResults["raceName"]}{" "}{lastRaceResults["season"]}
                         <ChevronRightIcon />
-                      </a>
+                      </Link>
                     </p>
 
                     <ul className="f1-podium">
                       {lastRaceResults["results"] && lastRaceResults["results"].map((result, id) => (
                         <li key={result["driverId"]} className="f1-podium--item">
-                          <a href="/" className="f1-podium--link">
+                          <Link to="/" className="f1-podium--link">
                             <span className="f1-podium--rank">{result["position"]}</span>
                             <span className="team-color-icon" style={{ background: RANDOM_TEAM_COLORS[id] }} />
                             <span className="f1-podium--driver">
@@ -251,15 +249,15 @@ export default function Standings() {
                               <span className="f1-podium--time">{result["points"]} PTS</span>
                               <ChevronRightIcon />
                             </span>
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
 
-                    <a href="/" className="btn btn-primary text-uppercase">
+                    <Link to={`/results/${currentSeason}/races/${lastRaceResults['round']}`} className="btn btn-primary text-uppercase">
                       Race Result
                       <ChevronRightIcon />
-                    </a>
+                    </Link>
                   </div>
                 )
               }

@@ -1,0 +1,35 @@
+a {
+  color: #000;
+}
+a:hover {
+  color: #000;
+}
+
+.btn {
+  font-family: "Titillium Web";
+}
+.btn-primary {
+  color: #fff;
+  background-color: #e10600;
+  border-color: #e10600;
+}
+.btn-primary:hover {
+  color: #e10600;
+  background-color: #fff;
+  border-color: #e10600;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #1f1f27;
+  border-color: #1f1f27;
+}
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #38383f;
+  border-color: #38383f;
+}
+
+.MuiButtonBase-root {
+  font-family: "Formula1 Display-Regular" !important;
+}

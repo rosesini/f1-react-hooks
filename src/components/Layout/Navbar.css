@@ -1,5 +1,7 @@
 .navbar {
   font-family: "Titillium Web";
+  padding: 0;
+  margin: 0;
 }
 
 .navbar ul {
@@ -24,6 +26,7 @@
 }
 
 .navbar .f2-f3-nav a {
+  font-size: 12px;
   text-decoration: none;
 }
 
@@ -33,4 +36,12 @@
 
 .navbar .global-actions {
   margin: 5px 10px 5px 0;
+}
+
+.btn-signin {
+  text-transform: uppercase;
+}
+.btn-signin svg {
+  margin-right: 3px;
+  margin-bottom: 2px;
 }

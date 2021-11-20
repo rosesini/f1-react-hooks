@@ -38,6 +38,18 @@
   width: 90%;
 }
 
+.race-calendar .race .country .name {
+  color: #949498;
+}
+
+.race-calendar .race:hover .country .name {
+  color: #fff;
+}
+
+.race-calendar .race.swiper-slide-active .country .name {
+  color: #fff;
+}
+
 .race .race-short-date {
   text-align: center;
 }

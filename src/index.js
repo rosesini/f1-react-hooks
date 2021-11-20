@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import './index.css';
+import './styles/reboot.css';
 import './styles/type.css';
 
 ReactDOM.render(

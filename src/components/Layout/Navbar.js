@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import PersonIcon from '@mui/icons-material/Person'
 
 import './Navbar.css'
@@ -14,9 +15,9 @@ export default function NavBar() {
         <div className="f2-f3-nav">
           <ul>
             <li>
-              <a href="/">
+              <Link to="/">
                 <span>F1<sup>TM</sup></span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -24,12 +25,12 @@ export default function NavBar() {
         <div className="global-nav ml-auto">
           <div className="global-actions">
             <div className="sign-in">
-              <a href="/" type="button" className="btn btn-primary">
+              <Link to="/" className="btn btn-secondary btn-signin">
                 <span>
                   <PersonIcon />
                   Sign In
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
