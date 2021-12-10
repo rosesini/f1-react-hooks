@@ -28,47 +28,39 @@ function RaceCalendarItem({ item: { date, raceName, Circuit: { circuitName, circ
   </> 
 }
 
-let racesLoaded = false
-let isFirstIndexSetted = false
-
 export default function RaceCalendar() {
   const [races, setRaces] = useState([])
   const [swiperRef, setSwiperRef] = useState(null)
-
-  const swiperSlideTo = (index) => {
-    if (swiperRef) {
-      swiperRef.slideTo(index - 1, 0)
-    }
-  }
 
   useEffect(() => {
     const loadScheduleOfRaces = async () => {
       apiScheduleRaces('current').then(res => {
         const { MRData: { RaceTable: { Races: raceList } } } = res
         setRaces(raceList)
-        racesLoaded = true
       })
     }
     loadScheduleOfRaces()
   }, [])
 
-  if (!racesLoaded & !isFirstIndexSetted) {
-    let activeIndex = 0
-    for (; activeIndex < races.length; activeIndex++) {
-      if (new Date(races[activeIndex].date) > new Date()) {
-        break
+  useEffect(() => {
+    const swiperSlideTo = (index) => {
+      if (swiperRef) {
+        swiperRef.slideTo(index - 1, 0)
       }
     }
 
-    if (activeIndex === races.length) {
-      activeIndex = races.length - 1
-    } else if (activeIndex > 0) {
-      activeIndex = activeIndex - 1
+    let activeIndex = 0
+    for (; activeIndex < races.length; activeIndex++) {
+      if (new Date(`${races[activeIndex].date} ${races[activeIndex].time}`) > new Date()) {
+        break
+      }
+    }
+    if (activeIndex < races.length) {
+      activeIndex = activeIndex + 1
     }
 
     swiperSlideTo(activeIndex)
-    isFirstIndexSetted = true
-  }
+  }, [races, swiperRef])
 
   return (
     <div className="race-calendar">
