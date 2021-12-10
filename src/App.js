@@ -1,14 +1,17 @@
 import { Routes, Route } from 'react-router-dom'
+
 import FormulaOneLayout from './components/Layout/FormulaOneLayout'
-import Homepage from './containers/Homepage'
-import Results from './containers/Results'
-import ResultsRaces from './containers/ResultsRaces'
-import ResultsRace from './containers/ResultsRace'
-import ResultsDrivers from './containers/ResultsDrivers'
-import ResultsDriver from './containers/ResultsDriver'
-import ResultsTeams from './containers/ResultsTeams'
-import ResultsTeam from './containers/ResultsTeam'
-import ResultsFastestLaps from './containers/ResultsFastestLaps'
+import ResultsOutlet from './features/Results/ResultsOutlet'
+
+import Homepage from './pages/Homepage'
+import ResultsRaces from './pages/ResultsRaces'
+import ResultsRace from './pages/ResultsRace'
+import ResultsDrivers from './pages/ResultsDrivers'
+import ResultsDriver from './pages/ResultsDriver'
+import ResultsTeams from './pages/ResultsTeams'
+import ResultsTeam from './pages/ResultsTeam'
+import ResultsFastestLaps from './pages/ResultsFastestLaps'
+
 import GlobalSpinner from './components/GlobalSpinner/GlobalSpinner'
 import GlobalSpinnerContextProvider from './components/GlobalSpinnerContext'
 
@@ -19,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<FormulaOneLayout />}>
             <Route index element={<Homepage />} />
-            <Route path="results/:season" element={<Results />}>
+            <Route path="results/:season" element={<ResultsOutlet />}>
               <Route path="races" element={<ResultsRaces />} />
               <Route path="races/:round" element={<ResultsRace />} />
               <Route path="drivers" element={<ResultsDrivers />} />
@@ -31,7 +34,7 @@ function App() {
             <Route path="*" element={<Homepage />} />
           </Route>
         </Routes>
-      </div>    
+      </div>
       <GlobalSpinner />
     </GlobalSpinnerContextProvider>
   )
