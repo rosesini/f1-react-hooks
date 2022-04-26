@@ -1,6 +1,7 @@
 {
   "name": "react-hooks",
   "version": "0.1.0",
+  "node": "16.8.0",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
